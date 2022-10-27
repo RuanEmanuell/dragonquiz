@@ -1,4 +1,4 @@
-# narutorun
+# dragon quiz
 
 Still under development.
 
