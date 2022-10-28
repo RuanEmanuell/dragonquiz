@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
             create: (_) {
               Controller();
             },
-            child: WelcomeScreen()));
+            child: const WelcomeScreen()));
   }
 }

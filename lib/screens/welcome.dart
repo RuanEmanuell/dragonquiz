@@ -13,7 +13,7 @@ class WelcomeScreen extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(body: Consumer<Controller>(builder: ((context, value, child) {
       return Container(
-          color: Colors.black,
+          color: Colors.blue,
           child: Column(
             children: [
               Container(
@@ -21,7 +21,8 @@ class WelcomeScreen extends StatelessWidget {
                   child: Image.asset("assets/images/logo.png")),
               AnimatedContainer(
                 duration: const Duration(seconds: 2),
-                margin: const EdgeInsets.only(left: 20, right: 20, top: 50, bottom: 50),
+                margin: EdgeInsets.only(
+                    left: 20, right: 20, top: screenHeight / 100, bottom: screenHeight / 25),
                 width: screenWidth,
                 height: screenHeight / 7,
                 decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
@@ -48,7 +49,7 @@ class WelcomeScreen extends StatelessWidget {
                           onPressed: () {
                             value.muteController();
                           },
-                          icon: Icon(value.isMuted ? Icons.volume_off : Icons.volume_down,
+                          icon: Icon(value.isMuted ? Icons.volume_off : Icons.volume_up,
                               size: 50, color: Colors.white)),
                     ),
                   ),

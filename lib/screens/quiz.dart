@@ -17,14 +17,15 @@ class QuizScreen extends StatelessWidget {
       child: Consumer<Controller>(
         builder: (context, value, child) {
           return Container(
-              padding: EdgeInsets.only(bottom: screenHeight / 10),
-              color: Colors.black,
+              height: screenHeight,
+              color: Colors.blue,
               child: Stack(
                 children: [
                   Column(children: [
                     AnimatedContainer(
                         duration: const Duration(milliseconds: 500),
-                        margin: EdgeInsets.only(top: screenHeight / 10, left: 30, right: 30),
+                        margin: EdgeInsets.only(
+                            left: screenWidth / 20, right: screenWidth / 20, top: screenHeight / 10),
                         width: screenWidth,
                         decoration: BoxDecoration(
                             color: value.colorController, borderRadius: BorderRadius.circular(20)),
@@ -33,14 +34,15 @@ class QuizScreen extends StatelessWidget {
                             child: Text(json["questions"][value.count]["question"],
                                 style: TextStyle(
                                     color: value.tappable ? Colors.black : Colors.white,
-                                    fontSize: 20)))),
+                                    fontSize: screenWidth / 20)))),
                     AnimatedContainer(
                       duration: const Duration(milliseconds: 500),
                       decoration: BoxDecoration(
-                          color: value.colorController, borderRadius: BorderRadius.circular(20)),
-                      height: screenHeight / 1.8,
+                          color: value.colorController,
+                          borderRadius: BorderRadius.circular(screenWidth / 20)),
+                      height: screenHeight / 1.9,
                       margin: EdgeInsets.only(
-                          top: screenHeight / 10, left: 30, right: 30, bottom: screenHeight / 10),
+                          top: screenHeight / 10, left: screenWidth / 20, right: screenWidth / 20),
                       width: screenWidth,
                       child: ListView.builder(
                         itemCount: json["questions"][value.count]["anwsers"].length,
@@ -75,14 +77,16 @@ class QuizScreen extends StatelessWidget {
                                 }
                               },
                               child: Container(
-                                  padding: const EdgeInsets.all(10),
-                                  margin: const EdgeInsets.all(10),
+                                  padding: EdgeInsets.all(screenHeight / 100),
+                                  margin: EdgeInsets.all(screenHeight / 100),
                                   decoration: BoxDecoration(
-                                      color: Colors.black, borderRadius: BorderRadius.circular(20)),
+                                      color: value.colorController,
+                                      border: Border.all(width: 3, color: Colors.black),
+                                      borderRadius: BorderRadius.circular(20)),
                                   child: Container(
-                                    margin: const EdgeInsets.all(10),
+                                    margin: EdgeInsets.all(screenHeight / 70),
                                     child: Text(json["questions"][value.count]["anwsers"][index],
-                                        style: const TextStyle(fontSize: 20, color: Colors.white)),
+                                        style: TextStyle(fontSize: screenWidth / 20)),
                                   )));
                         },
                       ),

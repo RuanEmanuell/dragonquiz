@@ -16,12 +16,12 @@ class ResultsScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             elevation: 0,
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.blue,
             leading: IconButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return WelcomeScreen();
+                    return const WelcomeScreen();
                   },
                 ));
               },
@@ -30,7 +30,7 @@ class ResultsScreen extends StatelessWidget {
         body: Consumer<Controller>(builder: (context, value, child) {
           return Container(
               height: screenHeight,
-              color: Colors.black,
+              color: Colors.blue,
               child: Column(
                 children: [
                   Container(
@@ -44,8 +44,7 @@ class ResultsScreen extends StatelessWidget {
                       decoration:
                           BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
                       child: Center(
-                        child: Container(
-                            child: Column(
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(value.rightCount > 8 ? "Congrats!" : "Too bad...",
@@ -61,7 +60,7 @@ class ResultsScreen extends StatelessWidget {
                                 child: Image.asset(
                                     "assets/images/${value.rightCount > 8 ? "goku" : "vegeta"}.png"))
                           ],
-                        )),
+                        ),
                       )),
                   IconButton(
                       onPressed: () {
