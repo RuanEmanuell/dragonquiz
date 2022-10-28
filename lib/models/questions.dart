@@ -58,7 +58,7 @@ Map<String, dynamic> json = {
     {
       "question": "How many times did Goku has died so far?",
       "anwsers": ["0", "1", "2", "3"],
-      "correct": "2"
+      "correct": "3"
     },
     {
       "question": "There is a game where Naruto wears Goku's clothes, which game is it?",
@@ -71,7 +71,7 @@ Map<String, dynamic> json = {
       "correct": "Naruto Shippuden Ultimate Ninja Storm 3"
     },
     {
-      "question": "Which was the biggets Kaioken multiplier so far?",
+      "question": "Which is the maximum Kaioken multiplier so far?",
       "anwsers": ["Kaioken X5", "Kaioken X10", "Kaioken X20", "Kaioken X50"],
       "correct": "Kaioken X20"
     },

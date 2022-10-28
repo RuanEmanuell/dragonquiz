@@ -8,7 +8,7 @@ import 'screens/home.dart';
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  Future.delayed(Duration(milliseconds: 500), () {
+  Future.delayed(const Duration(milliseconds: 500), () {
     FlutterNativeSplash.remove();
   });
   runApp(MultiProvider(
@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
             create: (_) {
               Controller();
             },
-            child: HomeScreen()));
+            child: const HomeScreen()));
   }
 }

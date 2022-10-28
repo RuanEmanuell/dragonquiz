@@ -11,16 +11,22 @@ class Controller extends ChangeNotifier {
     count++;
     colorController = Colors.white;
     tappable = true;
+    notifyListeners();
   }
 
-  rightAnwser() {
+  rightAnwser() async {
     rightCount++;
     colorController = Colors.green;
     isRight = true;
+    notifyListeners();
   }
 
-  wrongAnwser() {
+  wrongAnwser() async {
     colorController = Colors.red;
     isRight = false;
+    notifyListeners();
   }
+
+  @override
+  notifyListeners();
 }
