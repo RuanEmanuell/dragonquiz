@@ -4,8 +4,14 @@ class Controller extends ChangeNotifier {
   int count = 0;
   int rightCount = 0;
   var colorController = Colors.white;
+  bool isMuted = false;
   bool tappable = true;
   bool isRight = false;
+
+  muteController() {
+    isMuted = !isMuted;
+    notifyListeners();
+  }
 
   increaseCounter() {
     count++;
@@ -27,6 +33,11 @@ class Controller extends ChangeNotifier {
     notifyListeners();
   }
 
-  @override
-  notifyListeners();
+  resetData() {
+    colorController = Colors.white;
+    tappable = true;
+    count = 0;
+    rightCount = 0;
+    notifyListeners();
+  }
 }

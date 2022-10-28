@@ -6,8 +6,8 @@ import "../controller/controller.dart";
 import "../models/questions.dart";
 import "results.dart";
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class QuizScreen extends StatelessWidget {
+  const QuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +53,13 @@ class HomeScreen extends StatelessWidget {
                                     if (value.count >= json["questions"].length - 1) {
                                       Navigator.push(context, MaterialPageRoute(
                                         builder: (context) {
-                                          return ResultsScreen();
+                                          return const ResultsScreen();
                                         },
                                       ));
-                                      await FlameAudio.play(
-                                          value.rightCount > 8 ? "happy.mp3" : "sad.mp3");
+                                      !value.isMuted
+                                          ? FlameAudio.play(
+                                              value.rightCount > 8 ? "happy.mp3" : "sad.mp3")
+                                          : false;
                                     } else {
                                       value.increaseCounter();
                                     }
@@ -65,10 +67,10 @@ class HomeScreen extends StatelessWidget {
                                   if (json["questions"][value.count]["anwsers"][index] ==
                                       json["questions"][value.count]["correct"]) {
                                     value.rightAnwser();
-                                    await FlameAudio.play("right.mp3");
+                                    !value.isMuted ? await FlameAudio.play("right.mp3") : false;
                                   } else {
                                     value.wrongAnwser();
-                                    await FlameAudio.play("wrong.mp3");
+                                    !value.isMuted ? await FlameAudio.play("wrong.mp3") : false;
                                   }
                                 }
                               },

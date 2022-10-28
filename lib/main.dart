@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'controller/controller.dart';
-import 'screens/home.dart';
+import 'screens/welcome.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +23,6 @@ class MyApp extends StatelessWidget {
             create: (_) {
               Controller();
             },
-            child: const HomeScreen()));
+            child: WelcomeScreen()));
   }
 }

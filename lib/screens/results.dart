@@ -3,9 +3,12 @@ import 'package:provider/provider.dart';
 
 import "../controller/controller.dart";
 
-import "home.dart";
+import "quiz.dart";
+import "welcome.dart";
 
 class ResultsScreen extends StatelessWidget {
+  const ResultsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -18,7 +21,7 @@ class ResultsScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const HomeScreen();
+                    return WelcomeScreen();
                   },
                 ));
               },
@@ -38,8 +41,8 @@ class ResultsScreen extends StatelessWidget {
                           bottom: screenHeight / 10),
                       width: screenWidth,
                       height: screenHeight / 2,
-                      decoration: BoxDecoration(
-                          color: Colors.white, borderRadius: BorderRadius.circular(20)),
+                      decoration:
+                          BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
                       child: Center(
                         child: Container(
                             child: Column(
@@ -62,13 +65,10 @@ class ResultsScreen extends StatelessWidget {
                       )),
                   IconButton(
                       onPressed: () {
-                        value.colorController = Colors.white;
-                        value.tappable = true;
-                        value.count = 0;
-                        value.rightCount = 0;
+                        value.resetData();
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return const HomeScreen();
+                            return const QuizScreen();
                           },
                         ));
                       },
