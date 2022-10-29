@@ -1,6 +1,6 @@
 # Veja a versão em Português <a href="README-ptbr.md">aqui</a>
 
-## Pokéguesser
+## DragonQuiz
 
 A simple Dragon Ball Quiz app using Provider.
 
