@@ -14,6 +14,7 @@ class ResultsScreen extends StatelessWidget {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+        //Return button
         appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.blue,
@@ -33,6 +34,7 @@ class ResultsScreen extends StatelessWidget {
               color: Colors.blue,
               child: Column(
                 children: [
+                  //Main container
                   Container(
                       margin: EdgeInsets.only(
                           top: screenHeight / 10,
@@ -47,6 +49,7 @@ class ResultsScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            //Texts based on your perfomance
                             Text(value.rightCount > 8 ? "Congrats!" : "Too bad...",
                                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
                             Text("${(value.rightCount * 7.75).toStringAsFixed(0)}% Score",
@@ -55,6 +58,7 @@ class ResultsScreen extends StatelessWidget {
                                   fontSize: 35,
                                   color: value.rightCount > 8 ? Colors.green : Colors.red,
                                 )),
+                            //Goku or Vegeta images
                             SizedBox(
                                 height: screenHeight / 3,
                                 child: Image.asset(
@@ -62,6 +66,7 @@ class ResultsScreen extends StatelessWidget {
                           ],
                         ),
                       )),
+                  //Replay button
                   IconButton(
                       onPressed: () {
                         value.resetData();

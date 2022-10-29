@@ -16,13 +16,11 @@ class WelcomeScreen extends StatelessWidget {
           color: Colors.blue,
           child: Column(
             children: [
-              AnimatedContainer(
-                width:screenWidth,
-                duration: const Duration(seconds: 1),
-                child: Container(
-                    margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
-                    child: Image.asset("assets/images/logo.png")),
-              ),
+              //Logo container
+              Container(
+                  margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+                  child: Image.asset("assets/images/logo.png")),
+              //Start button
               AnimatedContainer(
                 duration: const Duration(seconds: 2),
                 margin: EdgeInsets.only(
@@ -43,25 +41,23 @@ class WelcomeScreen extends StatelessWidget {
                         style:
                             TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black))),
               ),
+              //Mute button
               Expanded(
                 child: Row(
                   children: [
                     Expanded(
-                      child: Container(
-                        child: IconButton(
-                            onPressed: () {
-                              value.muteController();
-                            },
-                            icon: Icon(value.isMuted ? Icons.volume_off : Icons.volume_up,
-                                size: 50, color: Colors.white)),
-                      ),
+                      child: IconButton(
+                          onPressed: () {
+                            value.muteController();
+                          },
+                          icon: Icon(value.isMuted ? Icons.volume_off : Icons.volume_up,
+                              size: 50, color: Colors.white)),
                     ),
+                    //Question mark button (not finished yet)
                     Expanded(
-                      child: Container(
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.question_mark, size: 45, color: Colors.white)),
-                      ),
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.question_mark, size: 45, color: Colors.white)),
                     ),
                   ],
                 ),

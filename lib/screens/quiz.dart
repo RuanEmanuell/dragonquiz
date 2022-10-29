@@ -22,6 +22,7 @@ class QuizScreen extends StatelessWidget {
               child: Stack(
                 children: [
                   Column(children: [
+                    //Question container
                     AnimatedContainer(
                         duration: const Duration(milliseconds: 500),
                         margin: EdgeInsets.only(
@@ -35,12 +36,13 @@ class QuizScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: value.tappable ? Colors.black : Colors.white,
                                     fontSize: screenWidth / 20)))),
+                    //Anwser container
                     AnimatedContainer(
                       duration: const Duration(milliseconds: 500),
                       decoration: BoxDecoration(
                           color: value.colorController,
                           borderRadius: BorderRadius.circular(screenWidth / 20)),
-                      height: screenHeight / 2,
+                      height: screenHeight / 1.9,
                       margin: EdgeInsets.only(
                           top: screenHeight / 10, left: screenWidth / 20, right: screenWidth / 20),
                       width: screenWidth,
@@ -52,6 +54,7 @@ class QuizScreen extends StatelessWidget {
                                 if (value.tappable) {
                                   value.tappable = false;
                                   Future.delayed(const Duration(seconds: 3), () async {
+                                    //Checking if the game is over or not
                                     if (value.count >= json["questions"].length - 1) {
                                       Navigator.push(context, MaterialPageRoute(
                                         builder: (context) {
@@ -66,6 +69,7 @@ class QuizScreen extends StatelessWidget {
                                       value.increaseCounter();
                                     }
                                   });
+                                  //If the question awnser equals to the user answer, it's right
                                   if (json["questions"][value.count]["anwsers"][index] ==
                                       json["questions"][value.count]["correct"]) {
                                     value.rightAnwser();
@@ -81,19 +85,21 @@ class QuizScreen extends StatelessWidget {
                                   margin: EdgeInsets.all(screenHeight / 100),
                                   decoration: BoxDecoration(
                                       color: value.colorController,
-                                      border: Border.all(width: 3, color: value.tappable ? Colors.black : Colors.white),
+                                      border: Border.all(
+                                          width: 3, color: value.tappable ? Colors.black : Colors.white),
                                       borderRadius: BorderRadius.circular(20)),
                                   child: Container(
                                     margin: EdgeInsets.all(screenHeight / 70),
                                     child: Text(json["questions"][value.count]["anwsers"][index],
                                         style: TextStyle(
-                                          color:value.tappable ? Colors.black : Colors.white,
-                                          fontSize: screenWidth / 20)),
+                                            color: value.tappable ? Colors.black : Colors.white,
+                                            fontSize: screenWidth / 20)),
                                   )));
                         },
                       ),
                     ),
                   ]),
+                  //Right / wrong images
                   !value.tappable
                       ? Container(
                           height: screenHeight / 4,
@@ -103,14 +109,14 @@ class QuizScreen extends StatelessWidget {
                               ? Image.asset("assets/images/right.png")
                               : Image.asset("assets/images/wrong.png"))
                       : Container(),
+                  //Progress bar 
                   SafeArea(
-                    child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 500),
-                        alignment: Alignment.topLeft,
-                        color: value.colorController,
-                        width: value.count * screenWidth / 14,
-                        height: screenHeight / 40),
-                  ),
+                      child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          alignment: Alignment.topLeft,
+                          color: value.colorController,
+                          width: value.count * screenWidth / 14,
+                          height: screenHeight / 40)),
                 ],
               ));
         },
