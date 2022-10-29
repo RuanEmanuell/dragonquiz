@@ -16,9 +16,13 @@ class WelcomeScreen extends StatelessWidget {
           color: Colors.blue,
           child: Column(
             children: [
-              Container(
-                  margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
-                  child: Image.asset("assets/images/logo.png")),
+              AnimatedContainer(
+                width:screenWidth,
+                duration: const Duration(seconds: 1),
+                child: Container(
+                    margin: const EdgeInsets.only(top: 40, left: 20, right: 20),
+                    child: Image.asset("assets/images/logo.png")),
+              ),
               AnimatedContainer(
                 duration: const Duration(seconds: 2),
                 margin: EdgeInsets.only(
@@ -39,30 +43,28 @@ class WelcomeScreen extends StatelessWidget {
                         style:
                             TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black))),
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      alignment: Alignment.bottomLeft,
-                      child: IconButton(
-                          onPressed: () {
-                            value.muteController();
-                          },
-                          icon: Icon(value.isMuted ? Icons.volume_off : Icons.volume_up,
-                              size: 50, color: Colors.white)),
+              Expanded(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        child: IconButton(
+                            onPressed: () {
+                              value.muteController();
+                            },
+                            icon: Icon(value.isMuted ? Icons.volume_off : Icons.volume_up,
+                                size: 50, color: Colors.white)),
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 40),
-                      alignment: Alignment.bottomRight,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.question_mark, size: 45, color: Colors.white)),
+                    Expanded(
+                      child: Container(
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.question_mark, size: 45, color: Colors.white)),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ));

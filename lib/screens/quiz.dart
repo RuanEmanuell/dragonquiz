@@ -40,7 +40,7 @@ class QuizScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: value.colorController,
                           borderRadius: BorderRadius.circular(screenWidth / 20)),
-                      height: screenHeight / 1.9,
+                      height: screenHeight / 2,
                       margin: EdgeInsets.only(
                           top: screenHeight / 10, left: screenWidth / 20, right: screenWidth / 20),
                       width: screenWidth,
@@ -81,12 +81,14 @@ class QuizScreen extends StatelessWidget {
                                   margin: EdgeInsets.all(screenHeight / 100),
                                   decoration: BoxDecoration(
                                       color: value.colorController,
-                                      border: Border.all(width: 3, color: Colors.black),
+                                      border: Border.all(width: 3, color: value.tappable ? Colors.black : Colors.white),
                                       borderRadius: BorderRadius.circular(20)),
                                   child: Container(
                                     margin: EdgeInsets.all(screenHeight / 70),
                                     child: Text(json["questions"][value.count]["anwsers"][index],
-                                        style: TextStyle(fontSize: screenWidth / 20)),
+                                        style: TextStyle(
+                                          color:value.tappable ? Colors.black : Colors.white,
+                                          fontSize: screenWidth / 20)),
                                   )));
                         },
                       ),
@@ -94,7 +96,7 @@ class QuizScreen extends StatelessWidget {
                   ]),
                   !value.tappable
                       ? Container(
-                          height: screenHeight / 3,
+                          height: screenHeight / 4,
                           alignment: Alignment.center,
                           margin: EdgeInsets.only(top: screenHeight / 2.25),
                           child: value.isRight
